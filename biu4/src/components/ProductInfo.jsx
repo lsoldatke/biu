@@ -14,7 +14,7 @@ function ProductInfo({ product }) {
   const calculateDiscountedPrice = (originalPriceStr, discountPercentage) => {
     const originalPrice = parseFloat(originalPriceStr.replace(" PLN", ""));
 
-    return originalPrice - originalPrice * (discountPercentage / 100);
+    return originalPrice - originalPrice * (discountPercentage / 100) + " PLN";
   };
 
   return (

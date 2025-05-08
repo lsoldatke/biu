@@ -3,7 +3,8 @@ body {
   background-color: #1f1f1f;
 }
 
-#product-catalog {
+#product-catalog,
+#product-summary {
   width: 30%;
   margin: 0 auto;
   text-align: center;
@@ -24,4 +25,8 @@ body {
 .product-general-info,
 .product-details {
   margin-bottom: 30px;
+}
+
+#availability-filter-btn {
+  margin-bottom: 15px;
 }
