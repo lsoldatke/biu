@@ -3,6 +3,13 @@ body {
   background-color: #1f1f1f;
 }
 
+#filters {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  margin-bottom: 30px;
+  width: 20%;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
@@ -14,4 +21,8 @@ td {
   border: 1px solid #cccccc;
   padding: 10px;
   text-align: center;
+}
+
+#category-filter {
+  margin-right: 10px;
 }
