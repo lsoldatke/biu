@@ -23,6 +23,25 @@ td {
   text-align: center;
 }
 
+tr {
+  cursor: pointer;
+}
+
 #category-filter {
   margin-right: 10px;
+}
+
+.modal-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.modal-content {
+  background: #cccccc;
+  color: #1f1f1f;
+  padding: 24px;
+  border-radius: 10px;
 }

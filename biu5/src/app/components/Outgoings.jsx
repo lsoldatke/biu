@@ -1,4 +1,4 @@
-function Outgoings({ outgoings, onDelete }) {
+function Outgoings({ outgoings, onDelete, onSelect }) {
   const columns = ["title", "amount", "category", "date"];
 
   return (
@@ -15,7 +15,7 @@ function Outgoings({ outgoings, onDelete }) {
         </thead>
         <tbody>
           {outgoings.map((outgoing) => (
-            <tr key={outgoing.id}>
+            <tr key={outgoing.id} onClick={() => onSelect(outgoing)}>
               {columns.map((column) => (
                 <td key={column}>{outgoing[column]}</td>
               ))}
