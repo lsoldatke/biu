@@ -20,7 +20,14 @@ function Outgoings({ outgoings, onDelete, onSelect }) {
                 <td key={column}>{outgoing[column]}</td>
               ))}
               <td>
-                <button onClick={() => onDelete(outgoing.id)}>Delete</button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onDelete(outgoing.id);
+                  }}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
