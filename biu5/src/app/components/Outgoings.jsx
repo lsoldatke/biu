@@ -1,9 +1,10 @@
-function Outgoings({ outgoings, onDelete, onSelect }) {
+function Outgoings({ outgoings, onSelect, onDelete }) {
   const columns = ["title", "amount", "category", "date"];
 
   return (
     <div id="outgoings">
       <h2>Outgoings</h2>
+
       {outgoings.length > 0 ? (
         <table id="outgoings-table">
           <thead>
@@ -14,6 +15,7 @@ function Outgoings({ outgoings, onDelete, onSelect }) {
               <th>actions</th>
             </tr>
           </thead>
+
           <tbody>
             {outgoings.map((outgoing) => (
               <tr key={outgoing.id} onClick={() => onSelect(outgoing)}>

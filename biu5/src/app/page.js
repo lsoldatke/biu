@@ -3,8 +3,8 @@
 import { useState } from "react";
 import inititalOutgoings from "../../data/outgoings.json";
 import Filters from "./components/Filters";
-import Outgoings from "./components/Outgoings";
 import OutgoingDetails from "./components/OutgoingDetails";
+import Outgoings from "./components/Outgoings";
 
 export default function Home() {
   const [outgoings, setOutgoings] = useState(inititalOutgoings);
@@ -35,9 +35,10 @@ export default function Home() {
       />
       <Outgoings
         outgoings={filteredOutgoings}
-        onDelete={handleDelete}
         onSelect={setSelectedOutgoing}
+        onDelete={handleDelete}
       />
+
       {selectedOutgoing && (
         <OutgoingDetails
           outgoing={selectedOutgoing}
