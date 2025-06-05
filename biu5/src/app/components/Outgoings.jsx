@@ -1,4 +1,4 @@
-function Outgoings({ outgoings, onSelect, onDelete }) {
+function Outgoings({ outgoings, onSelect, onAdd, onEdit, onDelete }) {
   const columns = ["title", "amount", "category", "date"];
 
   return (
@@ -26,6 +26,14 @@ function Outgoings({ outgoings, onSelect, onDelete }) {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
+                      onEdit(outgoing);
+                    }}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
                       onDelete(outgoing.id);
                     }}
                   >
@@ -39,6 +47,8 @@ function Outgoings({ outgoings, onSelect, onDelete }) {
       ) : (
         <p>No items</p>
       )}
+
+      <button onClick={onAdd}>Add new</button>
     </div>
   );
 }
