@@ -1,3 +1,5 @@
+import { Outgoing } from "../types";
+
 const Outgoings = ({ outgoings, onSelect, onAdd, onEdit, onDelete }) => {
   const columns = ["title", "amount", "category", "date"];
 
@@ -17,7 +19,7 @@ const Outgoings = ({ outgoings, onSelect, onAdd, onEdit, onDelete }) => {
           </thead>
 
           <tbody>
-            {outgoings.map((outgoing) => (
+            {outgoings.map((outgoing: Outgoing) => (
               <tr key={outgoing.id} onClick={() => onSelect(outgoing)}>
                 {columns.map((column) => (
                   <td key={column}>{outgoing[column]}</td>
