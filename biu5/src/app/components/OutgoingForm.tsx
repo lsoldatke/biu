@@ -2,16 +2,9 @@
 
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { Outgoing } from "../types";
 
-type Outgoing = {
-  title: string;
-  amount: number;
-  category: string;
-  date: string;
-  description: string;
-};
-
-type Props = {
+type OutgoingFormProps = {
   isEditing?: boolean;
   initialValues?: Partial<Outgoing>;
   onSubmit: (outgoing: Outgoing) => void;
@@ -23,8 +16,8 @@ const OutgoingForm = ({
   initialValues = {},
   onSubmit,
   onClose,
-}: Props) => {
-  const defaultValues: Outgoing = {
+}: OutgoingFormProps) => {
+  const defaultValues: Partial<Outgoing> = {
     title: "",
     amount: 0,
     category: "",
@@ -35,8 +28,8 @@ const OutgoingForm = ({
   const validationSchema = Yup.object({
     title: Yup.string().required("Title is required"),
     amount: Yup.number()
-      .positive("Amount must be grearter than 0")
-      .required("Amount is required"),
+      .required("Amount is required")
+      .positive("Amount must be grearter than 0"),
     category: Yup.string().required("Category is required"),
     date: Yup.string().required("Date is required"),
     description: Yup.string(),

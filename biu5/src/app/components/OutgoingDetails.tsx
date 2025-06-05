@@ -1,4 +1,4 @@
-function OutgoingDetails({ outgoing, onClose }) {
+const OutgoingDetails = ({ outgoing, onClose }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -19,6 +19,6 @@ function OutgoingDetails({ outgoing, onClose }) {
       </div>
     </div>
   );
-}
+};
 
 export default OutgoingDetails;

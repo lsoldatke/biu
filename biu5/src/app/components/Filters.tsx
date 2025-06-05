@@ -1,9 +1,9 @@
-function Filters({
+const Filters = ({
   categoryFilter,
   dateFilter,
   onCategoryChange,
   onDateChange,
-}) {
+}) => {
   return (
     <div id="filters">
       <p>Filters: </p>
@@ -29,6 +29,6 @@ function Filters({
       />
     </div>
   );
-}
+};
 
 export default Filters;

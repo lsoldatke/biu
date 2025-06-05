@@ -1,4 +1,4 @@
-function Outgoings({ outgoings, onSelect, onAdd, onEdit, onDelete }) {
+const Outgoings = ({ outgoings, onSelect, onAdd, onEdit, onDelete }) => {
   const columns = ["title", "amount", "category", "date"];
 
   return (
@@ -51,6 +51,6 @@ function Outgoings({ outgoings, onSelect, onAdd, onEdit, onDelete }) {
       <button onClick={onAdd}>Add new</button>
     </div>
   );
-}
+};
 
 export default Outgoings;

@@ -16,23 +16,7 @@ const Home = () => {
   const [categoryFilter, setCategoryFilter] = useState("");
   const [dateFilter, setDateFilter] = useState("");
 
-  const handleAdd = (newOutgoing) => {
-    setOutgoings((prevOutgoings) => [...prevOutgoings, newOutgoing]);
-  };
-
-  const handleEdit = (updatedOutgoing) => {
-    setOutgoings(
-      outgoings.map((outgoing) =>
-        outgoing.id === updatedOutgoing.id ? updatedOutgoing : outgoing
-      )
-    );
-  };
-
-  const handleDelete = (id) => {
-    setOutgoings(outgoings.filter((outgoing) => outgoing.id !== id));
-  };
-
-  const filteredOutgoings = outgoings.filter((outgoing) => {
+  const filteredOutgoings: Outgoing[] = outgoings.filter((outgoing) => {
     const matchCategory = categoryFilter
       ? outgoing.category === categoryFilter
       : true;
@@ -40,6 +24,22 @@ const Home = () => {
 
     return matchCategory && matchDate;
   });
+
+  const handleAdd = (newOutgoing: Outgoing) => {
+    setOutgoings((prevOutgoings) => [...prevOutgoings, newOutgoing]);
+  };
+
+  const handleEdit = (updatedOutgoing: Outgoing) => {
+    setOutgoings(
+      outgoings.map((outgoing) =>
+        outgoing.id === updatedOutgoing.id ? updatedOutgoing : outgoing
+      )
+    );
+  };
+
+  const handleDelete = (id: number) => {
+    setOutgoings(outgoings.filter((outgoing) => outgoing.id !== id));
+  };
 
   return (
     <>
@@ -53,10 +53,10 @@ const Home = () => {
         outgoings={filteredOutgoings}
         onSelect={setSelectedOutgoing}
         onAdd={() => {
-          setEditingOutgoing("");
+          setEditingOutgoing(null);
           setIsFormOpen(true);
         }}
-        onEdit={(outgoing) => {
+        onEdit={(outgoing: Outgoing) => {
           setEditingOutgoing(outgoing);
           setIsFormOpen(true);
         }}
@@ -69,21 +69,22 @@ const Home = () => {
           onClose={() => setSelectedOutgoing(null)}
         />
       )}
+
       {isFormOpen && editingOutgoing && (
         <OutgoingForm
+          isEditing={true}
           initialValues={editingOutgoing}
           onSubmit={handleEdit}
-          isEditing={true}
           onClose={() => {
-            setEditingOutgoing("");
+            setEditingOutgoing(null);
             setIsFormOpen(false);
           }}
         />
       )}
       {isFormOpen && !editingOutgoing && (
         <OutgoingForm
-          onSubmit={handleAdd}
           isEditing={false}
+          onSubmit={handleAdd}
           onClose={() => {
             setIsFormOpen(false);
           }}

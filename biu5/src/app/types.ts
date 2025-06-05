@@ -1,4 +1,5 @@
 export type Outgoing = {
+  id: number
   title: string;
   amount: number;
   category: string;
