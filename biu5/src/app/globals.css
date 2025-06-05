@@ -55,6 +55,10 @@ td button {
   flex-direction: column;
 }
 
+.outgoing-formik > * {
+  margin-bottom: 10px;
+}
+
 .error {
   color: red;
 }
