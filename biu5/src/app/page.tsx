@@ -4,16 +4,17 @@ import { useState } from "react";
 import inititalOutgoings from "../../data/outgoings.json";
 import Filters from "./components/Filters";
 import OutgoingDetails from "./components/OutgoingDetails";
-import Outgoings from "./components/Outgoings";
 import OutgoingForm from "./components/OutgoingForm";
+import Outgoings from "./components/Outgoings";
+import { Outgoing } from "./types";
 
-export default function Home() {
+const Home = () => {
   const [outgoings, setOutgoings] = useState(inititalOutgoings);
+  const [selectedOutgoing, setSelectedOutgoing] = useState(null);
+  const [editingOutgoing, setEditingOutgoing] = useState(null);
+  const [isFormOpen, setIsFormOpen] = useState(false);
   const [categoryFilter, setCategoryFilter] = useState("");
   const [dateFilter, setDateFilter] = useState("");
-  const [selectedOutgoing, setSelectedOutgoing] = useState("");
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [editingOutgoing, setEditingOutgoing] = useState("");
 
   const handleAdd = (newOutgoing) => {
     setOutgoings((prevOutgoings) => [...prevOutgoings, newOutgoing]);
@@ -90,4 +91,6 @@ export default function Home() {
       )}
     </>
   );
-}
+};
+
+export default Home;
