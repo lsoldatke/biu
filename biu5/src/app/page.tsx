@@ -25,7 +25,10 @@ const Home = () => {
     return matchCategory && matchDate;
   });
 
-  const handleAdd = (newOutgoing: Outgoing) => {
+  const handleAdd = (values: Omit<Outgoing, "id">) => {
+    const nextId = outgoings.length + 1;
+    const newOutgoing = { ...values, id: nextId };
+
     setOutgoings((prevOutgoings) => [...prevOutgoings, newOutgoing]);
   };
 
