@@ -101,11 +101,10 @@ const OutgoingForm = ({
               <button type="submit">
                 {isEditing ? "Save changes" : "Add outgoing"}
               </button>
+              <button onClick={onClose}>Close</button>
             </Form>
           </Formik>
         </div>
-
-        <button onClick={onClose}>Close</button>
       </div>
     </div>
   );
